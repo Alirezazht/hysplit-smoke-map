@@ -64,8 +64,10 @@
     <div id="scale"><span>0</span><span>1000</span><span>2000</span><span>3000</span><span>4500+</span></div>
 
     <h2>How to read the map</h2>
-    <p class="note">Lines are the 27 ensemble members of the back trajectory, coloured by height above ground. The thick lines belong to the selected day, the thin faint lines to the other days. Red circles are fire clusters of the selected day. A dot with a black outline marks an hour when a trajectory was over a cluster, within the cluster radius plus 50 km.</p>
-
+    <p class="note"><b>Lines.</b> Each line is one of the 27 ensemble members of the HYSPLIT back trajectory, for the three start heights (1500, 3000 and 3600 m). The colour shows the height above ground. Thick lines are the part of the trajectories that falls on the selected day. Thin faint lines are the other days.</p>
+    <p class="note"><b>Red circles.</b> Fire clusters of the selected day, that is, groups of NASA VIIRS fire detections that lie close together. The circle size is the cluster radius.</p>
+    <p class="note"><b>Dots.</b> An hour when the air was over a fire cluster of the same day, within the cluster radius plus 50 km. Click a dot to see its height, the mixed layer depth and the cluster.</p>
+    <p class="note"><b>Caution.</b> Being over a cluster means that the air passed above that area at that height. It does not show that the smoke measured at Sherbrooke came from that cluster. The model grid is about 100 km.</p>
     <button id="sum-btn" type="button">Summary table</button>
   </aside>
 </div>
