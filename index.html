@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HYSPLIT back trajectories and NASA active fires</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+</head>
+<body>
+
+<header>
+  <div id="left-box">
+    <img src="logo.png" alt="Université de Sherbrooke" id="logo">
+    <div id="authors">
+      <div class="names"><b>Alireza Zhalehdoost</b><b>Norman O'Neill</b></div>
+      <div class="aff">CARTEL, Université de Sherbrooke</div>
+    </div>
+  </div>
+  <div id="title-box">
+    <h1>HYSPLIT back trajectories and NASA active fires</h1>
+    <p class="sub">Air arriving over Sherbrooke at 19 UTC on 14 August 2024, followed back 120 hours</p>
+  </div>
+</header>
+
+<div id="layout">
+  <div id="map-frame">
+    <div id="map"></div>
+    <div id="sum-card" hidden>
+      <div class="sum-head">
+        <b>Height of the air over fire clusters</b>
+        <button id="sum-close" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div id="summary"></div>
+      <p class="note">Members: ensemble members whose trajectory was over a fire cluster at least once (cluster radius plus 50 km, same UTC day). MLD: mixed layer depth from the HYSPLIT output.</p>
+    </div>
+  </div>
+
+  <aside id="info">
+    <h2>Day (UTC)</h2>
+    <select id="day"></select>
+
+    <h2>Layers</h2>
+    <div id="layers">
+      <label><input type="checkbox" id="l-base" checked> NASA true colour imagery</label>
+      <label><input type="checkbox" id="l-fire" checked> NASA active fire detections</label>
+      <label><input type="checkbox" id="l-clu" checked> Fire clusters</label>
+      <label><input type="checkbox" id="l-traj" checked> HYSPLIT trajectories</label>
+      <label><input type="checkbox" id="l-hit" checked> Hours over a fire cluster</label>
+      <div class="hrow">
+        <span>Start height</span>
+        <label><input type="checkbox" class="hsel" value="1500" checked> 1500 m</label>
+        <label><input type="checkbox" class="hsel" value="3000" checked> 3000 m</label>
+        <label><input type="checkbox" class="hsel" value="3600" checked> 3600 m</label>
+      </div>
+    </div>
+
+    <h2>Selected point</h2>
+    <div id="details">Click a coloured dot or a trajectory on the map to see its details here.</div>
+
+    <h2>Height above ground (m)</h2>
+    <div id="bar"></div>
+    <div id="scale"><span>0</span><span>1000</span><span>2000</span><span>3000</span><span>4500+</span></div>
+
+    <h2>How to read the map</h2>
+    <p class="note">Lines are the 27 ensemble members of the back trajectory, coloured by height above ground. The thick lines belong to the selected day, the thin faint lines to the other days. Red circles are fire clusters of the selected day. A dot with a black outline marks an hour when a trajectory was over a cluster, within the cluster radius plus 50 km.</p>
+
+    <button id="sum-btn" type="button">Summary table</button>
+  </aside>
+</div>
+
+<footer>
+  <span>Data: HYSPLIT model (NOAA Air Resources Laboratory, GDAS 1°), NASA GIBS and FIRMS (VIIRS S-NPP)</span>
+</footer>
+
+<script src="data.js"></script>
+<script src="clusters.js"></script>
+<script src="hits.js"></script>
+<script src="app.js"></script>
+<script src="summary.js"></script>
+</body>
+</html>
